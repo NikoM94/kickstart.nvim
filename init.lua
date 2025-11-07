@@ -86,7 +86,8 @@ vim.o.confirm = true
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
+-- setup keymap to enter this file
+vim.keymap.set('n', '<leader>vc', '<cmd>:e $MYVIMRC<CR>', { desc = 'Open init.lua' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -104,6 +105,7 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
@@ -193,25 +195,60 @@ require('lazy').setup({
     },
   },
   {
-    "kdheepak/lazygit.nvim",
+    'kdheepak/lazygit.nvim',
     lazy = true,
     cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
     },
     --     optional for floating window border decoration
     dependencies = {
-      "nvim-lua/plenary.nvim",
+      'nvim-lua/plenary.nvim',
     },
     -- setting the keybinding for LazyGit with 'keys' is recommended in
     -- order to load the plugin when the command is run for the first time
     keys = {
-      { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-    }
+      { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+    },
   },
+  {
+    {
+      'vonheikemen/fine-cmdline.nvim',
+      dependencies = {
+        'MunifTanjim/nui.nvim',
+      },
+      config = function()
+        require('fine-cmdline').setup {
+          cmdline = {
+            prompt = ':',
+            enable_keymaps = true,
+            smart_history = true,
+            -- Add more options if needed
+          },
+          popup = {
+            position = {
+              row = '40%',
+              col = '50%',
+            },
+            size = {
+              width = '60%',
+            },
+            border = {
+              style = 'rounded',
+              top_align = 'center',
+            },
+            win_options = {
+              winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
+            },
+          },
+        }
+      end,
+    },
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -275,6 +312,8 @@ require('lazy').setup({
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>v', group = '[V]im config' },
+        { '<leader>g', group = 'Lazy[G]it' },
       },
     },
   },
@@ -917,8 +956,7 @@ require('lazy').setup({
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
-  },
-  {
+}, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
