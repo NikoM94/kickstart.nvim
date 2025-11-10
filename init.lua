@@ -285,120 +285,6 @@ require('lazy').setup({
       },
     },
   },
-  {
-    'barrett-ruth/live-server.nvim',
-    build = 'pnpm add -g live-server',
-    cmd = { 'LiveServerStart', 'LiveServerStop' },
-    config = true
-  },
-  {
-    'ahmedkhalf/project.nvim',
-    config = function()
-      require('project_nvim').setup {
-        detection_methods = { 'pattern', 'lsp' },
-        patterns = { '.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', '.html' },
-      }
-    end,
-  },
-  {
-    'akinsho/bufferline.nvim',
-    config = function()
-      require('bufferline').setup {
-        options = {
-          numbers = 'buffer_id',
-          offsets = {
-            {
-              filetype = 'NvimTree',
-              text = 'File Explorer',
-              text_align = 'center',
-              separator = true,
-            },
-          },
-          separator_style = 'slope',
-        },
-      }
-    end,
-  },
-  {
-    'kyazdani42/nvim-tree.lua',
-    config = function()
-      require('nvim-tree').setup {
-        sort = {
-          sorter = 'case_sensitive',
-        },
-        view = {
-          width = 25,
-        },
-        renderer = {
-          group_empty = true,
-        },
-        filters = {
-          dotfiles = true,
-        },
-        on_attach = my_on_attach,
-        sync_root_with_cwd = true,
-        respect_buf_cwd = true,
-        update_focused_file = {
-          enable = true,
-          update_root = true
-        },
-      }
-    end,
-  },
-  {
-    'kdheepak/lazygit.nvim',
-    lazy = true,
-    cmd = {
-      'LazyGit',
-      'LazyGitConfig',
-      'LazyGitCurrentFile',
-      'LazyGitFilter',
-      'LazyGitFilterCurrentFile',
-    },
-    --     optional for floating window border decoration
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    -- setting the keybinding for LazyGit with 'keys' is recommended in
-    -- order to load the plugin when the command is run for the first time
-    keys = {
-      { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
-    },
-  },
-  {
-    {
-      'vonheikemen/fine-cmdline.nvim',
-      dependencies = {
-        'MunifTanjim/nui.nvim',
-      },
-      config = function()
-        require('fine-cmdline').setup {
-          cmdline = {
-            prompt = ':',
-            enable_keymaps = true,
-            smart_history = true,
-            -- Add more options if needed
-          },
-          popup = {
-            position = {
-              row = '40%',
-              col = '50%',
-            },
-            size = {
-              width = '60%',
-            },
-            border = {
-              style = 'rounded',
-              top_align = 'center',
-            },
-            win_options = {
-              winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
-            },
-          },
-        }
-      end,
-    },
-  },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
@@ -414,7 +300,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -462,7 +348,7 @@ require('lazy').setup({
       spec = {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk',  mode = { 'n', 'v' } },
+        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>v', group = '[V]im config' },
         { '<leader>g', group = 'Lazy[G]it' },
       },
@@ -497,7 +383,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -605,7 +491,7 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim',    opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -1101,7 +987,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
