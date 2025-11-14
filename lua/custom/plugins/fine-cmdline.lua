@@ -30,5 +30,6 @@ return {
         },
       }
     end,
+    vim.keymap.set('n', ':', '<cmd>FineCmdline<CR>'),
   },
 }

@@ -1,25 +1,14 @@
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- setup keymap to enter this file
 vim.keymap.set('n', '<leader>vc', '<cmd>:e $MYVIMRC<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
---remap : to FineCmdLine
-vim.keymap.set('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
---map <leader-l> to :wqa command mode in case the plugin breaks
-vim.keymap.set('n', '<leader>l', '<cmd>:wqa<CR>')
---remap <C-e> to :NvimTreeOpen
-vim.keymap.set('n', '<leader>e', '<cmd>:NvimTreeToggle<CR>')
---move to next/previous buffer
-vim.keymap.set('n', '<S-l>', '<cmd>:BufferLineCycleNext<CR>')
-vim.keymap.set('n', '<S-h>', '<cmd>:BufferLineCyclePrev<CR>')
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

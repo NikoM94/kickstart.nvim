@@ -16,5 +16,8 @@ return {
         },
       }
     end,
+    --move to next/previous buffer
+    vim.keymap.set('n', '<S-l>', '<cmd>:BufferLineCycleNext<CR>'),
+    vim.keymap.set('n', '<S-h>', '<cmd>:BufferLineCyclePrev<CR>'),
   },
 }

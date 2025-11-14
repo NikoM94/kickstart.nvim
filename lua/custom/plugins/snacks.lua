@@ -1,97 +1,3 @@
---add different layouts as lua tables
-local ivy = {
-  layout = {
-    box = 'vertical',
-    backdrop = false,
-    row = -1,
-    width = 0,
-    height = 0.4,
-    border = 'top',
-    title = ' {title} {live} {flags}',
-    title_pos = 'left',
-    { win = 'input', height = 1, border = 'bottom' },
-    {
-      box = 'horizontal',
-      { win = 'list', border = 'none' },
-      { win = 'preview', title = '{preview}', width = 0.6, border = 'left' },
-    },
-  },
-}
-
-local ivy_split = {
-  preview = 'main',
-  layout = {
-    box = 'vertical',
-    backdrop = false,
-    width = 0,
-    height = 0.4,
-    position = 'bottom',
-    border = 'top',
-    title = ' {title} {live} {flags}',
-    title_pos = 'left',
-    { win = 'input', height = 1, border = 'bottom' },
-    {
-      box = 'horizontal',
-      { win = 'list', border = 'none' },
-      { win = 'preview', title = '{preview}', width = 0.6, border = 'left' },
-    },
-  },
-}
-
-local dropdown = {
-  layout = { --add layout table here
-    backdrop = false,
-    row = 1,
-    width = 0.4,
-    min_width = 80,
-    height = 0.8,
-    border = 'none',
-    box = 'vertical',
-    { win = 'preview', title = '{preview}', height = 0.4, border = true },
-    {
-      box = 'vertical',
-      border = true,
-      title = '{title} {live} {flags}',
-      title_pos = 'center',
-      { win = 'input', height = 1, border = 'bottom' },
-      { win = 'list', border = 'none' },
-    },
-  },
-}
-
-local default = {
-  layout = {
-    box = 'horizontal',
-    width = 0.8,
-    min_width = 120,
-    height = 0.8,
-    {
-      box = 'vertical',
-      border = true,
-      title = '{title} {live} {flags}',
-      { win = 'input', height = 1, border = 'bottom' },
-      { win = 'list', border = 'none' },
-    },
-    { win = 'preview', title = '{preview}', border = true, width = 0.5 },
-  },
-}
-
-local vscode = {
-  hidden = { 'preview' },
-  layout = {
-    backdrop = false,
-    row = 1,
-    width = 0.4,
-    min_width = 80,
-    height = 0.4,
-    border = 'none',
-    box = 'vertical',
-    { win = 'input', height = 1, border = true, title = '{title} {live} {flags}', title_pos = 'center' },
-    { win = 'list', border = 'hpad' },
-    { win = 'preview', title = '{preview}', border = true },
-  },
-}
-
 return {
   {
     'folke/snacks.nvim',
@@ -119,29 +25,11 @@ return {
           },
         },
       },
-      explorer = {
-        enabled = false,
-        layout = {
-          width = 0.6,
-        },
-      },
       indent = { enabled = true },
       input = { enabled = true },
       notifier = {
         enabled = true,
         timeout = 3000,
-      },
-      picker = {
-        layout = dropdown,
-        sources = {
-          explorer = {
-            layout = {
-              layout = {
-                width = 0.2,
-              },
-            },
-          },
-        },
       },
       quickfile = { enabled = true },
       scope = { enabled = true },
