@@ -1,23 +1,35 @@
-return {
-  {
-    'akinsho/bufferline.nvim',
-    config = function()
-      require('bufferline').setup {
-        options = {
-          numbers = 'buffer_id',
-          offsets = {
-            {
-              filetype = 'snacks_layout_box',
-              text_align = 'center',
-              separator = true,
-            },
-          },
-          separator_style = 'slope',
-        },
-      }
-    end,
-    --move to next/previous buffer
-    vim.keymap.set('n', '<S-l>', '<cmd>:BufferLineCycleNext<CR>'),
-    vim.keymap.set('n', '<S-h>', '<cmd>:BufferLineCyclePrev<CR>'),
-  },
-}
+return {}
+--return {
+--  {
+--    'akinsho/bufferline.nvim',
+--    config = function()
+--      require('bufferline').setup {
+--        options = {
+--          custom_filter = function(buf, _)
+--            --ignore directory buffers for restoring session
+--            local buf_name = vim.api.nvim_buf_get_name(buf)
+--            local state = vim.uv.fs_stat(buf_name)
+--            if state and state.type == 'directory' then
+--              return false
+--            end
+--            return true
+--          end,
+--          numbers = 'buffer_id',
+--          offsets = {
+--            {
+--              filetype = 'snacks_layout_box',
+--  text_align = 'center',
+--              separator = true,
+--            },
+--          },
+--          separator_style = 'slope',
+--        },
+--      }
+--    end,
+--    keys = {
+--      { '<S-l>', '<cmd>:BufferLineCycleNext<CR>', desc = 'Go to next buffer' },
+--      { '<S-h>', '<cmd>:BufferLineCycleNext<CR>', desc = 'Go to previous buffer' },
+--      { '<leader>bo', '<cmd>:BufferLineCloseOthers<CR>', desc = 'Close other buffers' },
+--    },
+--  },
+--}

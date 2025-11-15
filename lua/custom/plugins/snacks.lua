@@ -4,6 +4,9 @@ return {
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
     opts = {
       bigfile = { enabled = true },
       dashboard = {
