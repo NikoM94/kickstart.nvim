@@ -28,6 +28,22 @@ return {
           },
         },
       },
+      picker = {
+        formatters = {
+          filename = {
+            enabled = true,
+            path = 'filename',
+          },
+        },
+      },
+      tabs = {
+        formatters = {
+          filename = {
+            enabled = true,
+            path = 'filename',
+          },
+        },
+      },
       indent = { enabled = true },
       input = { enabled = true },
       notifier = {

@@ -7,11 +7,10 @@ return {
   event = 'BufReadPre',
   opts = {
     name_formatter = function(buf)
-      local filename = vim.fn.fnamemodify(buf.name, ':t')
-      if filename == '' then
+      if not buf.name or buf.name == '' then
         return '[No Name]'
       end
-      return filename
+      return vim.fn.fnamemodify(buf.name, ':t')
     end,
     sidebar_filetypes = {
       NvimTree = true,
