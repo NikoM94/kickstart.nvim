@@ -29,6 +29,15 @@ return {
         },
       },
       picker = {
+        sources = {
+          explorer = {
+            layout = {
+              layout = {
+                width = 0.3,
+              },
+            },
+          },
+        },
         formatters = {
           filename = {
             enabled = true,

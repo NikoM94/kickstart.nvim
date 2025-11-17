@@ -50,6 +50,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>v', group = '[V]im config' },
       { '<leader>g', group = 'Lazy[G]it' },
       { '<leader>q', group = 'Sessions' },
+      { '<leader>a', group = 'ai' },
     },
   },
 }
