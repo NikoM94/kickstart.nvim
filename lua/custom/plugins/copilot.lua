@@ -11,6 +11,11 @@ return {
         suggestion = {
           enabled = true,
           auto_trigger = true,
+          keymap = {
+            accept = '<leader><Tab>',
+            next = '<leader><§>',
+            prev = '<leader><½>',
+          },
         },
         panel = { enabled = false },
       }

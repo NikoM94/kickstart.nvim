@@ -3,7 +3,7 @@
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- setup keymap to enter this file
-vim.keymap.set('n', '<leader>vc', '<cmd>:e $MYVIMRC<CR>', { desc = "Open init.lua" })
+vim.keymap.set('n', '<leader>vc', '<cmd>:e $MYVIMRC<CR>', { desc = 'Open init.lua' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -24,3 +24,9 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-f>', '<C-f>zz')
 vim.keymap.set('n', '<C-b>', '<C-d>zz')
+
+-- Clear Copilot suggestion or fallback to other functionality
+vim.keymap.set('n', '<esc>', function()
+  if not require('copilot-lsp.nes').clear() then
+  end
+end, { desc = 'Clear Copilot suggestion or fallback' })
