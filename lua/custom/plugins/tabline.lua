@@ -19,6 +19,5 @@ return {
   keys = {
     { '<S-l>', '<cmd>:TablineBufferNext<CR>', desc = 'Go to next buffer' },
     { '<S-h>', '<cmd>:TablineBufferPrevious<CR>', desc = 'Go to previous buffer' },
-    { '<leader>bo', '<cmd>:BufferLineCloseOthers<CR>', desc = 'Close other buffers' },
   },
 }
