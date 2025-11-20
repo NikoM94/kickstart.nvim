@@ -11,16 +11,9 @@ return {
     opts = {
       -- custom handling of parsers
       ensure_installed = {
-        'astro',
         'bash',
         'c',
         'css',
-        'diff',
-        'go',
-        'gomod',
-        'gowork',
-        'gosum',
-        'graphql',
         'html',
         'javascript',
         'jsdoc',
@@ -33,15 +26,12 @@ return {
         'markdown',
         'markdown_inline',
         'python',
-        'query',
         'regex',
         'toml',
         'tsx',
         'typescript',
         'vim',
         'vimdoc',
-        'yaml',
-        'ruby',
       },
     },
     config = function(_, opts)
